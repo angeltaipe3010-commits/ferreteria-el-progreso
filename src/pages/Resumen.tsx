@@ -144,7 +144,7 @@ export default function Resumen() {
 
       {/* Gráficos */}
       <div className="grid gap-4 xl:grid-cols-3">
-        <Card className="p-5 xl:col-span-2">
+        <Card className="min-w-0 p-5 xl:col-span-2">
           <div className="flex flex-wrap items-center justify-between gap-3">
             <div>
               <h2 className="font-bold">Ventas diarias</h2>
@@ -199,7 +199,7 @@ export default function Resumen() {
           </div>
         </Card>
 
-        <Card className="p-5">
+        <Card className="min-w-0 p-5">
           <h2 className="font-bold">Métodos de pago</h2>
           <p className="text-xs text-slate-400">{nombreMes()}</p>
           <div className="relative mx-auto mt-2 h-52 w-52">
@@ -250,7 +250,7 @@ export default function Resumen() {
 
       {/* Tablas */}
       <div className="grid gap-4 xl:grid-cols-5">
-        <Card className="p-5 xl:col-span-3">
+        <Card className="min-w-0 p-5 xl:col-span-3">
           <div className="flex items-center gap-2">
             <Trophy className="size-5 text-amber-500" />
             <h2 className="font-bold">Top 5 productos</h2>
@@ -302,7 +302,7 @@ export default function Resumen() {
           </div>
         </Card>
 
-        <Card className="p-5 xl:col-span-2">
+        <Card className="min-w-0 p-5 xl:col-span-2">
           <div className="flex items-center gap-2">
             <AlertTriangle className="size-5 text-amber-500" />
             <h2 className="font-bold">Alertas de reposición</h2>
