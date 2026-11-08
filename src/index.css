@@ -1,0 +1,65 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --color-brand-50: #eef2ff;
+  --color-brand-100: #e0e7ff;
+  --color-brand-200: #c7d2fe;
+  --color-brand-400: #818cf8;
+  --color-brand-500: #5b5bf0;
+  --color-brand-600: #4646e0;
+  --color-brand-700: #3730a3;
+  --color-navy-700: #1e3a8a;
+  --color-navy-800: #172f73;
+}
+
+/* Tema oscuro: negro como base con el color de marca morado/azul */
+.dark {
+  /* mismo morado/azul de marca que el tema claro, más luminoso sobre negro */
+  --color-brand-400: #a5b4fc;
+  --color-navy-700: #5b5bf0;
+  --color-navy-800: #4646e0;
+  /* grises neutros (sin tinte azul) */
+  --color-slate-50: #fafafa;
+  --color-slate-100: #f4f4f5;
+  --color-slate-200: #e4e4e7;
+  --color-slate-300: #d4d4d8;
+  --color-slate-400: #a1a1aa;
+  --color-slate-500: #8a8a93;
+  --color-slate-600: #52525b;
+  --color-slate-700: #333336;
+  --color-slate-800: #232325;
+  --color-slate-900: #141414;
+  --color-slate-950: #0a0a0a;
+}
+
+html, body, #root { height: 100%; }
+body {
+  @apply bg-slate-50 text-slate-800 antialiased dark:bg-slate-950 dark:text-slate-100;
+  -webkit-tap-highlight-color: transparent;
+}
+.card {
+  @apply rounded-2xl bg-white shadow-[0_1px_2px_rgba(15,23,42,.04),0_8px_24px_-12px_rgba(15,23,42,.12)] ring-1 ring-slate-100 dark:bg-slate-900 dark:ring-slate-800 dark:shadow-none;
+}
+.input {
+  @apply w-full rounded-xl bg-slate-50 px-3 py-2.5 text-sm ring-1 ring-slate-200 outline-none transition-shadow placeholder:text-slate-400 focus:ring-2 focus:ring-brand-500 dark:bg-slate-800 dark:ring-slate-700;
+}
+.etiqueta {
+  @apply mb-1 block text-xs font-medium text-slate-500 dark:text-slate-400;
+}
+.patio-difuminado {
+  --borde: 14%;
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 var(--borde), #000 calc(100% - var(--borde)), transparent),
+    linear-gradient(to bottom, transparent, #000 18%, #000 78%, transparent);
+  -webkit-mask-composite: source-in;
+  mask-image: linear-gradient(to right, transparent, #000 var(--borde), #000 calc(100% - var(--borde)), transparent),
+    linear-gradient(to bottom, transparent, #000 18%, #000 78%, transparent);
+  mask-composite: intersect;
+}
+.scroll-thin::-webkit-scrollbar { width: 6px; height: 6px; }
+.scroll-thin::-webkit-scrollbar-thumb { @apply rounded-full bg-slate-200 dark:bg-slate-700; }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
+}
